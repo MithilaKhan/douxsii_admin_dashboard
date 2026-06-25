@@ -5,7 +5,7 @@ export type User = {
   email: string;
   image: string;
   name: string;
-  role: "SUPER_ADMIN" | "ADMIN"; 
+  role: string; 
   status: "active" | "inactive"; 
 };
 

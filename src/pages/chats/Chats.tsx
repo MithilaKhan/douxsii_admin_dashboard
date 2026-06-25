@@ -16,7 +16,7 @@ const STATUS_BADGE: Record<string, string> = {
 // Generates avatar background color based on name length or character code
 const getAvatarBg = (name: string) => {
     const colors = [
-        'bg-[#560e18]', 'bg-[#1e3a8a]', 'bg-[#115e59]', 
+        'bg-[#560e18]', 'bg-[#1e3a8a]', 'bg-[#115e59]',
         'bg-[#7c2d12]', 'bg-[#581c87]', 'bg-[#0369a1]'
     ];
     let sum = 0;
@@ -28,9 +28,9 @@ const getAvatarBg = (name: string) => {
 
 const Chats = () => {
     const [chats, setChats] = useState<SupportChat[]>(MOCK_CHATS);
-    const [selectedChatKey, setSelectedChatKey] = useState<string | null>(null);
+    const [selectedChatKey, setSelectedChatKey] = useState<string | null>('1');
     const [searchQuery, setSearchQuery] = useState('');
-    const [activeTab, setActiveTab] = useState<'active' | 'resolved'>('active');
+    const [activeTab, setActiveTab] = useState<'active' | 'waiting' | 'resolved'>('active');
     const [toast, setToast] = useState('');
 
     const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -42,10 +42,22 @@ const Chats = () => {
 
     const selectedChat = chats.find(c => c.key === selectedChatKey);
 
-    // Scroll to bottom when messages or selected chat changes
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     }, [selectedChat?.messages, selectedChatKey]);
+
+    useEffect(() => {
+        const tabChats = chats.filter(chat => {
+            if (activeTab === 'active') return chat.status === 'In Progress';
+            if (activeTab === 'waiting') return chat.status === 'Open';
+            return chat.status === 'Resolved' || chat.status === 'Closed';
+        });
+        if (tabChats.length > 0) {
+            setSelectedChatKey(tabChats[0].key);
+        } else {
+            setSelectedChatKey(null);
+        }
+    }, [activeTab]);
 
     const handleSendMessage = (text: string) => {
         if (!selectedChatKey) return;
@@ -87,11 +99,13 @@ const Chats = () => {
 
     // Filter chats based on tab and search query
     const filteredChats = chats.filter(chat => {
-        const matchesTab = activeTab === 'active' 
-            ? (chat.status === 'Open' || chat.status === 'In Progress')
-            : (chat.status === 'Resolved' || chat.status === 'Closed');
+        const matchesTab = activeTab === 'active'
+            ? (chat.status === 'In Progress')
+            : activeTab === 'waiting'
+                ? (chat.status === 'Open')
+                : (chat.status === 'Resolved' || chat.status === 'Closed');
 
-        const matchesSearch = 
+        const matchesSearch =
             chat.userName.toLowerCase().includes(searchQuery.toLowerCase()) ||
             chat.chatId.toLowerCase().includes(searchQuery.toLowerCase()) ||
             chat.subject.toLowerCase().includes(searchQuery.toLowerCase());
@@ -99,15 +113,17 @@ const Chats = () => {
         return matchesTab && matchesSearch;
     });
 
+    const activeChatsCount = chats.filter(c => c.status === 'In Progress').length;
+
     return (
-        <div className="flex flex-col h-[calc(100vh-140px)] text-white">
-            <PageHeader 
-                title="Support Chats" 
-                subtitle="Provide real-time help to users and vendors." 
+        <div className="flex flex-col h-[calc(100vh-130px)]">
+            <PageHeader
+                title="Live Chats"
+                subtitle="Real time performance monitoring and support health."
             />
 
             {/* Main Layout Container */}
-            <div className="flex flex-col lg:flex-row gap-6 mt-6 flex-1 overflow-hidden min-h-0">
+            <div className="flex flex-col lg:flex-row gap-6 mt-2 flex-1 overflow-hidden min-h-0">
                 <ChatSidebar
                     filteredChats={filteredChats}
                     selectedChatKey={selectedChatKey}
@@ -118,6 +134,7 @@ const Chats = () => {
                     onTabChange={setActiveTab}
                     getAvatarBg={getAvatarBg}
                     statusBadge={STATUS_BADGE}
+                    activeChatsCount={activeChatsCount}
                 />
 
                 <ChatWindow

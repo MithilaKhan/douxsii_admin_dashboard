@@ -1,6 +1,6 @@
 import { Modal } from 'antd';
 import { FiMail, FiPackage, FiMessageSquare, FiCalendar, FiDollarSign } from 'react-icons/fi';
-import { Gift } from '../../pages/gifts/gifts.types';
+import { Gift } from '../../pages/review/review.types';
 import ModalHeader from './ModalHeader';
 import InfoBlock from './InfoBlock';
 

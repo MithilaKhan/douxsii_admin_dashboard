@@ -134,4 +134,55 @@
 }
 .jodit-theme-dark svg {
     fill: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* ─── AntD Pagination Light Styling ─── */
+.custom-antd-pagination-light .ant-pagination-item, 
+.custom-antd-pagination-light .ant-pagination-prev, 
+.custom-antd-pagination-light .ant-pagination-next {
+    border-radius: 50% !important;
+    border: 1px solid rgba(86, 0, 12, 0.1) !important;
+    background: #ffffff !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 32px !important;
+    height: 32px !important;
+    line-height: 32px !important;
+    transition: all 0.2s !important;
+}
+.custom-antd-pagination-light .ant-pagination-item a {
+    color: #333333 !important;
+    font-weight: 500 !important;
+}
+.custom-antd-pagination-light .ant-pagination-item-active {
+    background: #56000c !important;
+    border-color: #56000c !important;
+}
+.custom-antd-pagination-light .ant-pagination-item-active a {
+    color: #ffffff !important;
+}
+.custom-antd-pagination-light .ant-pagination-prev .ant-pagination-item-link,
+.custom-antd-pagination-light .ant-pagination-next .ant-pagination-item-link {
+    color: #333333 !important;
+    background: transparent !important;
+    border: none !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+.custom-antd-pagination-light .ant-pagination-item:hover,
+.custom-antd-pagination-light .ant-pagination-prev:hover,
+.custom-antd-pagination-light .ant-pagination-next:hover {
+    border-color: rgba(86, 0, 12, 0.3) !important;
+}
+.custom-antd-pagination-light .ant-pagination-jump-prev,
+.custom-antd-pagination-light .ant-pagination-jump-next {
+    color: #333333 !important;
+    background: transparent !important;
+    width: 32px !important;
+    height: 32px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 }

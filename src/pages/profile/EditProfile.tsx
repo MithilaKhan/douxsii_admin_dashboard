@@ -43,7 +43,7 @@ const EditProfile: React.FC = () => {
                         <label htmlFor="img" className="relative block w-28 h-28 cursor-pointer rounded-full bg-cover bg-center border-4 border-white/10 shadow-sm" style={{ backgroundImage: `url(${imgURL})` }}>
                             <div 
                                 className="absolute bottom-0 right-0 w-8 h-8 rounded-full border border-white/10 flex items-center justify-center shadow-sm"
-                                style={{ background: '#560e18' }}
+                                style={{ background: '#56000c' }}
                             >
                                 <AiOutlineEdit size={18} className="text-white" />
                             </div>
@@ -51,8 +51,8 @@ const EditProfile: React.FC = () => {
                     </div>
                 </div>
 
-                <FormInput name="name" label={<span className="block text-white/80 font-medium text-base mb-1">Full Name</span>} placeholder="Enter your name" rules={[{ required: true, message: 'Please input your full name!' }]} />
-                <FormInput name="email" label={<span className="block text-white/80 font-medium text-base mb-1">Email</span>} placeholder="Enter your email" rules={[{ required: true, message: 'Please input your email!' }, { type: 'email', message: 'Please enter a valid email!' }]} />
+                <FormInput name="name" label={<span className="block text-[#333333] font-medium text-base mb-1">Full Name</span>} placeholder="Enter your name" inputClassName="bg-[#f0f0f0] border-none text-[#333333] placeholder:text-[#8c8c8c]" rules={[{ required: true, message: 'Please input your full name!' }]} />
+                <FormInput name="email" label={<span className="block text-[#333333] font-medium text-base mb-1">Email</span>} placeholder="Enter your email" inputClassName="bg-[#f0f0f0] border-none text-[#333333] placeholder:text-[#8c8c8c]" rules={[{ required: true, message: 'Please input your email!' }, { type: 'email', message: 'Please enter a valid email!' }]} />
 
                 <Form.Item className="flex justify-center mt-6">
                     <Button 
@@ -62,7 +62,7 @@ const EditProfile: React.FC = () => {
                             fontWeight: 600, 
                             paddingLeft: '32px', 
                             paddingRight: '32px',
-                            background: '#560e18',
+                            background: '#56000c',
                             borderColor: 'transparent',
                             color: '#ffffff'
                         }} 

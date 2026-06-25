@@ -1,6 +1,6 @@
 import { Modal } from 'antd';
 import { FiMail, FiPhone, FiMapPin, FiGift, FiCreditCard, FiShoppingBag, FiDollarSign } from 'react-icons/fi';
-import { User } from '../../pages/users/users.types';
+import { User } from '../../pages/customer/customer.types';
 import ModalHeader from './ModalHeader';
 import InfoBlock from './InfoBlock';
 

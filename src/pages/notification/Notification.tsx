@@ -30,13 +30,13 @@ const Notification = () => {
             <div className="flex items-start gap-3">
                 <button 
                     onClick={() => navigate(-1)} 
-                    className="text-white hover:text-white/80 transition-colors p-1 mt-0.5 cursor-pointer bg-transparent border-0 outline-none"
+                    className="text-[#56000c] hover:text-[#7d1522] transition-colors p-1 mt-0.5 cursor-pointer bg-transparent border-0 outline-none"
                 >
                     <IoArrowBackOutline size={26} />
                 </button>
                 <div>
                     <h1 
-                        className="text-white font-bold m-0 font-sans" 
+                        className="text-[#333333] font-bold m-0 font-sans" 
                         style={{ 
                             fontFamily: 'Inter, sans-serif',
                             fontSize: '30px',
@@ -47,7 +47,7 @@ const Notification = () => {
                         Notifications
                     </h1>
                     <p 
-                        className="text-white/60 m-0 mt-1.5 font-sans" 
+                        className="text-gray-500 m-0 mt-1.5 font-sans" 
                         style={{ 
                             fontFamily: 'Inter, sans-serif',
                             fontSize: '16px',
@@ -65,16 +65,12 @@ const Notification = () => {
                 {MOCK_NOTIFICATIONS.map((item) => (
                     <div 
                         key={item.id} 
-                        className="p-5 rounded-2xl flex items-start justify-between gap-4 transition-all duration-300 hover:bg-white/[0.06]"
-                        style={{
-                            background: 'rgba(255, 255, 255, 0.04)',
-                            border: '1px solid rgba(255, 255, 255, 0.08)'
-                        }}
+                        className="p-5 rounded-2xl flex items-start justify-between gap-4 transition-all duration-300 hover:scale-[1.002] bg-white border border-[#FFD2D6]/40 shadow-[0_4px_20px_rgba(86,0,12,0.03)]"
                     >
                         <div className="flex flex-col gap-1.5">
-                            <h3 className="text-white text-base font-semibold m-0">{item.title}</h3>
-                            <p className="text-white/60 text-sm m-0 leading-relaxed max-w-2xl">{item.text}</p>
-                            <div className="text-white/40 text-xs mt-1 flex flex-wrap items-center gap-1.5">
+                            <h3 className="text-[#242424] text-base font-bold m-0">{item.title}</h3>
+                            <p className="text-gray-600 text-sm m-0 leading-relaxed max-w-2xl">{item.text}</p>
+                            <div className="text-gray-400 text-xs mt-1 flex flex-wrap items-center gap-1.5">
                                 <span>To: {item.recipient}</span>
                                 <span>•</span>
                                 <span>{item.time}</span>
@@ -83,7 +79,7 @@ const Notification = () => {
                             </div>
                         </div>
                         <div className="shrink-0 mt-1">
-                            <FiBell className="text-[#ff4b72]" size={20} />
+                            <FiBell className="text-[#56000c]" size={20} />
                         </div>
                     </div>
                 ))}

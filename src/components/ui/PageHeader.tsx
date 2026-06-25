@@ -17,7 +17,7 @@ export function PageHeader({ title, subtitle, extra, className }: PageHeaderProp
     >
       <div>
         <h1 
-          className="text-white font-bold m-0 font-sans" 
+          className="text-[#242424] font-bold m-0 font-sans" 
           style={{ 
             fontFamily: 'Inter, sans-serif',
             fontSize: '30px',
@@ -29,7 +29,7 @@ export function PageHeader({ title, subtitle, extra, className }: PageHeaderProp
         </h1>
         {subtitle && (
           <p 
-            className="text-white/60 m-0 mt-1.5 font-sans" 
+            className="text-[#242424B2] m-0 mt-1.5 font-sans" 
             style={{ 
               fontFamily: 'Inter, sans-serif',
               fontSize: '16px',

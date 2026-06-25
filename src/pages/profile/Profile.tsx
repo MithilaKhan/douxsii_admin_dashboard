@@ -20,34 +20,30 @@ const items: TabsProps['items'] = [
 
 const Profile: React.FC = () => (
     <div
-        className="p-8 rounded-2xl"
-        style={{
-            background: 'rgba(255, 255, 255, 0.04)',
-            border: '1px solid rgba(255, 255, 255, 0.08)'
-        }}
+        className="p-8 rounded-2xl bg-white border border-[#FFD2D6]/40 shadow-[0_4px_20px_rgba(86,0,12,0.03)]"
     >
         <ConfigProvider
             theme={{
                 token: {
-                    colorPrimary: '#ff4b72',
-                    colorText: 'rgba(255, 255, 255, 0.85)',
-                    colorTextHeading: '#ffffff',
-                    colorBgContainer: '#560e18',
-                    colorBorder: 'rgba(255, 255, 255, 0.1)',
+                    colorPrimary: '#56000c',
+                    colorText: '#333333',
+                    colorTextHeading: '#242424',
+                    colorBgContainer: '#ffffff',
+                    colorBorder: 'rgba(86, 0, 12, 0.1)',
                 },
                 components: {
                     Input: {
-                        colorBgContainer: '#560e18',
-                        colorText: '#ffffff',
-                        colorTextPlaceholder: '#b7868b',
-                        activeBorderColor: '#ff4b72',
-                        hoverBorderColor: '#ff4b72',
+                        colorBgContainer: '#ffffff',
+                        colorText: '#333333',
+                        colorTextPlaceholder: '#8c8c8c',
+                        activeBorderColor: '#56000c',
+                        hoverBorderColor: '#56000c',
                     },
                     Tabs: {
-                        itemColor: 'rgba(255, 255, 255, 0.5)',
-                        itemSelectedColor: '#ff4b72',
-                        itemHoverColor: '#ff4b72',
-                        inkBarColor: '#ff4b72',
+                        itemColor: '#6b7280',
+                        itemSelectedColor: '#56000c',
+                        itemHoverColor: '#56000c',
+                        inkBarColor: '#56000c',
                     }
                 }
             }}

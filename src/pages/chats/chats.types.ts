@@ -22,13 +22,14 @@ export interface SupportChat {
 export interface ChatSidebarProps {
     filteredChats: SupportChat[];
     selectedChatKey: string | null;
-    onSelectChat: (key: string) => void;
+    onSelectChat: (key: string | null) => void;
     searchQuery: string;
     onSearchChange: (val: string) => void;
-    activeTab: 'active' | 'resolved';
-    onTabChange: (tab: 'active' | 'resolved') => void;
+    activeTab: 'active' | 'waiting' | 'resolved';
+    onTabChange: (tab: 'active' | 'waiting' | 'resolved') => void;
     getAvatarBg: (name: string) => string;
     statusBadge: Record<string, string>;
+    activeChatsCount: number;
 }
 
 export interface ChatWindowProps {

@@ -14,9 +14,9 @@ const ChangePassword = () => {
     return (
         <div className="max-w-lg mx-auto py-4">
             <Form form={form} layout="vertical" onFinish={handleChangePassword}>
-                <FormInput name="currentPassword" label={<span className="block text-white/80 font-medium text-base mb-1">Current Password</span>} type="password" rules={[{ required: true, message: 'Please input Current password!' }]} />
-                <FormInput name="newPassword" label={<span className="block text-white/80 font-medium text-base mb-1">New Password</span>} type="password" rules={[{ required: true, message: "Please input your New password!" }, { min: 8, message: "Password must be at least 8 characters long!" }, ({ getFieldValue }) => ({ validator(_, value) { if (!value || getFieldValue('currentPassword') !== value) return Promise.resolve(); return Promise.reject(new Error('The New password cannot be the same as the current Password')); } })]} />
-                <FormInput name="confirmPassword" label={<span className="block text-white/80 font-medium text-base mb-1">Confirm Password</span>} type="password" dependencies={['newPassword']} rules={[{ required: true, message: "Please input your Confirm password!" }, ({ getFieldValue }) => ({ validator(_, value) { if (!value || getFieldValue('newPassword') === value) return Promise.resolve(); return Promise.reject(new Error('The passwords do not match!')); } })]} />
+                <FormInput name="currentPassword" label={<span className="block text-[#333333] font-medium text-base mb-1">Current Password</span>} type="password" inputClassName="bg-[#f0f0f0] border-none text-[#333333] placeholder:text-[#8c8c8c]" rules={[{ required: true, message: 'Please input Current password!' }]} />
+                <FormInput name="newPassword" label={<span className="block text-[#333333] font-medium text-base mb-1">New Password</span>} type="password" inputClassName="bg-[#f0f0f0] border-none text-[#333333] placeholder:text-[#8c8c8c]" rules={[{ required: true, message: "Please input your New password!" }, { min: 8, message: "Password must be at least 8 characters long!" }, ({ getFieldValue }) => ({ validator(_, value) { if (!value || getFieldValue('currentPassword') !== value) return Promise.resolve(); return Promise.reject(new Error('The New password cannot be the same as the current Password')); } })]} />
+                <FormInput name="confirmPassword" label={<span className="block text-[#333333] font-medium text-base mb-1">Confirm Password</span>} type="password" dependencies={['newPassword']} inputClassName="bg-[#f0f0f0] border-none text-[#333333] placeholder:text-[#8c8c8c]" rules={[{ required: true, message: "Please input your Confirm password!" }, ({ getFieldValue }) => ({ validator(_, value) { if (!value || getFieldValue('newPassword') === value) return Promise.resolve(); return Promise.reject(new Error('The passwords do not match!')); } })]} />
 
                 <Form.Item className="flex justify-center mt-6">
                     <Button 
@@ -26,7 +26,7 @@ const ChangePassword = () => {
                             fontWeight: 600, 
                             paddingLeft: '32px', 
                             paddingRight: '32px',
-                            background: '#560e18',
+                            background: '#56000c',
                             borderColor: 'transparent',
                             color: '#ffffff'
                         }} 

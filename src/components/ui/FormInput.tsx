@@ -11,6 +11,7 @@ interface FormInputProps {
   length?: number;
   readOnly?: boolean;
   dependencies?: string[];
+  inputClassName?: string;
 }
 
 export const FormInput = ({ 
@@ -22,7 +23,8 @@ export const FormInput = ({
   className, 
   length = 4, 
   readOnly = false,
-  dependencies
+  dependencies,
+  inputClassName = 'border-white/10'
 }: FormInputProps) => {
   return (
     <Form.Item 
@@ -34,11 +36,11 @@ export const FormInput = ({
       hasFeedback={type === 'password'}
     >
       {type === 'password' ? (
-        <Input.Password placeholder={placeholder} className="h-12 border-white/10 rounded-lg px-4" />
+        <Input.Password placeholder={placeholder} className={`h-12 rounded-lg px-4 ${inputClassName}`} />
       ) : type === 'otp' ? (
         <Input.OTP length={length} variant="filled" style={{ height: '50px' }} />
       ) : (
-        <Input placeholder={placeholder} type={type} readOnly={readOnly} className="h-12 border-white/10 rounded-lg px-4" />
+        <Input placeholder={placeholder} type={type} readOnly={readOnly} className={`h-12 rounded-lg px-4 ${inputClassName}`} />
       )}
     </Form.Item>
   );

@@ -6,15 +6,22 @@ interface PaginationProps {
     total: number;
     onChange: (page: number, pageSize: number) => void;
     className?: string;
+    light?: boolean;
 }
 
-export function Pagination({ current, pageSize, total, onChange, className }: PaginationProps) {
+export function Pagination({ current, pageSize, total, onChange, className, light = false }: PaginationProps) {
     const start = total === 0 ? 0 : (current - 1) * pageSize + 1;
     const end = Math.min(current * pageSize, total);
 
     return (
-        <div className={`flex flex-col sm:flex-row gap-4 items-center justify-between pt-4 border-t border-white/5 ${className || ''}`}>
-            <span className="text-white/40 text-xs">
+        <div 
+            className={`flex flex-col sm:flex-row gap-4 items-center justify-between p-4 rounded-b-2xl ${
+                light 
+                    ? 'bg-[#FFE5E7]/40 border-t border-[#FFD2D6]/30' 
+                    : 'border-t border-white/5 pt-4'
+            } ${className || ''}`}
+        >
+            <span className={light ? 'text-[#242424]/60 text-xs' : 'text-white/40 text-xs'}>
                 Showing {start} - {end} of {total} events
             </span>
             <ConfigProvider
@@ -22,13 +29,13 @@ export function Pagination({ current, pageSize, total, onChange, className }: Pa
                     components: {
                         Pagination: {
                             itemBg: 'transparent',
-                            itemActiveBg: '#46000B',
+                            itemActiveBg: light ? '#56000c' : '#46000B',
                             itemSize: 32,
                             itemActiveBgDisabled: 'transparent',
-                            colorPrimary: '#ffffff',
-                            colorPrimaryHover: '#ffffff',
-                            colorText: 'rgba(255, 255, 255, 0.6)',
-                            colorTextDisabled: 'rgba(255, 255, 255, 0.25)',
+                            colorPrimary: light ? '#ffffff' : '#ffffff',
+                            colorPrimaryHover: light ? '#ffffff' : '#ffffff',
+                            colorText: light ? '#333333' : 'rgba(255, 255, 255, 0.6)',
+                            colorTextDisabled: light ? 'rgba(0, 0, 0, 0.25)' : 'rgba(255, 255, 255, 0.25)',
                             itemLinkBg: 'transparent',
                         },
                     },
@@ -40,7 +47,7 @@ export function Pagination({ current, pageSize, total, onChange, className }: Pa
                     total={total}
                     onChange={onChange}
                     showSizeChanger={false}
-                    className="custom-antd-pagination"
+                    className={light ? 'custom-antd-pagination-light' : 'custom-antd-pagination'}
                 />
             </ConfigProvider>
         </div>

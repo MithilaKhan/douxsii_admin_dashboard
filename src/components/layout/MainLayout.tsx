@@ -8,11 +8,11 @@ const { Content } = Layout;
 
 const MainLayout: React.FC = () => {
     return (
-        <Layout style={{ minHeight: '100vh', background: '#46000B' }}>
+        <Layout style={{ minHeight: '100vh', background: '#FAF6F0' }}>
             {/* Sidebar */}
             <Sidebar />
 
-            <Layout style={{ display: 'flex', flexDirection: 'column', height: '100vh', overflow: 'hidden', background: '#23090a' }}>
+            <Layout style={{ display: 'flex', flexDirection: 'column', height: '100vh', overflow: 'hidden', background: '#FAF6F0' }}>
                 {/* Header */}
                 <HeaderDashboard />
 
@@ -21,7 +21,7 @@ const MainLayout: React.FC = () => {
                     className="overflow-y-auto p-6"
                     style={{
                         flex: 1,
-                        background: '#23090a',
+                        background: '#FAF6F0',
                     }}
                 >
                     <div
